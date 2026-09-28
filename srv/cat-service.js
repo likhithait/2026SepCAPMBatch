@@ -378,13 +378,10 @@ this.on('getHeighestPricedProduct', async (request) => {
 
 this.on('discountPrice', async(request, response) => {
     try {
-        // Step-1 : Get the parameter form the entity
         const ID = request.params[0];
 
-        // Step-2 : Creating object for transaction service using request
         const transaction = cds.tx(request);
 
-        // Step-3 : Update the purchase order service
         await transaction.update(PurchaseOrderSrv).with({
             GROSS_AMOUNT: {
                 '-=': 1000

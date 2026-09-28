@@ -1,0 +1,365 @@
+### GET PRODUCTS
+
+GET http://localhost:4004/odata/v4/catalog/ProductSrv
+
+
+### GET EMPLOYEES
+
+GET http://localhost:4004/odata/v4/catalog/EmployeeSrv
+
+
+### GET ADDRESSES
+
+GET http://localhost:4004/odata/v4/catalog/AddressSrv
+
+
+### GET BUSINESS PARTNERS
+
+GET http://localhost:4004/odata/v4/catalog/BusinessPartnerSrv
+
+
+### GET PURCHASE ORDERS
+
+GET http://localhost:4004/odata/v4/catalog/PurchaseOrderSrv
+
+
+### GET PURCHASE ITEMS
+
+GET http://localhost:4004/odata/v4/catalog/PurchaseItemSrv
+
+
+### CREATE EMPLOYEE
+
+POST http://localhost:4004/odata/v4/catalog/createEmployee
+Content-Type: application/json
+
+{
+    "ID": "550e8400-e29b-41d4-a716-446655440888",
+    "nameFirst": "Renu",
+    "nameLast": "Kumar",
+    "nameIntitals": "R",
+    "nameMiddle": null,
+    "gender": "F",
+    "language": "EN",
+    "loginName": "renuka",
+    "phoneNumber": "+919687689023",
+    "email": "renu@example.com",
+    "Currency_code": "USD",
+    "salaryAmount": 500000,
+    "accountNumber": "123456789",
+    "bankId": "BANK001",
+    "bankName": "HDFC Bank"
+}
+
+###
+PATCH http://localhost:4004/odata/v4/catalog/EmployeeSrv/550e8400-e29b-41d4-a716-446655440888
+
+Content-Type: application/json
+{
+    "salaryAmount":"105000.00",
+    "Currency_code":"USD"
+}
+
+
+
+### CREATE ADDRESS
+
+POST http://localhost:4004/odata/v4/catalog/createAddress
+Content-Type: application/json
+
+{
+    "NODE_KEY": "377c4b6e-c00b-447f-a396-4609931c2fc9",
+    "ADDRESS_TYPE": "HOME",
+    "VAL_START": "2024-01-01",
+    "VAL_END": "2026-12-31",
+    "LATITUDE": 12.9716,
+    "LONGITUDE": 77.5946,
+    "STREET": "MG Road",
+    "POSTAL_CODE": "560001",
+    "CITY": "Bangalore",
+    "COUNTRY": "India",
+    "BUILDING": "Prestige Meridian"
+}
+
+
+### UPDATE EMPLOYEE
+
+POST http://localhost:4004/odata/v4/catalog/updateEmployee
+Content-Type: application/json
+
+{
+    "ID": "550e8400-e29b-41d4-a716-446655440000",
+    "salaryAmount": 75000,
+    "Currency_code": "USD"
+}
+
+
+
+
+
+### UPDATE ADDRESS
+
+POST http://localhost:4004/odata/v4/catalog/updateAddress
+Content-Type: application/json
+
+{
+    "NODE_KEY": "377c4b6e-c00b-447f-a396-4609931c2fc9",
+    "CITY": "HYD"
+}
+
+
+### CREATE PRODUCT
+
+POST http://localhost:4004/odata/v4/catalog/createProduct
+Content-Type: application/json
+
+{
+    "NODE_KEY": "550e8400-e29b-41d4-a716-446655440001",
+    "PRODUCT_ID": "PRD100001",
+    "TYPE_CODE": "FG",
+    "CATEGORY": "Electronics",
+    "DESCRIPTION": "Laptop Computer",
+    "TAX_TARIF_CODE": 1001,
+    "MEASURE_UNIT": "EA",
+    "WEIGHT_MEASURE": 2.50,
+    "WEIGHT_UNIT": "KG",
+    "PRICE": 75000.00,
+    "CURRENCY_CODE": "INR",
+    "WIDTH": 35.00,
+    "DEPTH": 25.00,
+    "HEIGHT": 2.50,
+    "DIM_UNIT": "CM"
+}
+
+###
+PATCH http://localhost:4004/odata/v4/catalog/ProductSrv/74867AD200E41EDBA5D8B06B26EB4052
+Content-Type: application/json
+
+{
+    "PRICE": 1398000.00
+}
+
+
+### UPDATE PRODUCT
+POST http://localhost:4004/odata/v4/catalog/updateProduct
+Content-Type: application/json
+
+{
+    "NODE_KEY": "550e8400-e29b-41d4-a716-446655440001",
+    "PRICE": 80000
+}
+
+
+### GET EMPLOYEES WITH SALARY GREATER THAN 40000
+
+POST http://localhost:4004/odata/v4/catalog/GetEmployees
+Content-Type: application/json
+
+{}
+
+
+### DELETE PRODUCT
+
+POST http://localhost:4004/odata/v4/catalog/deleteProduct
+Content-Type: application/json
+
+{
+    "NODE_KEY": "550e8400-e29b-41d4-a716-446655440001"
+}
+
+
+
+
+
+###
+http://localhost:4004/odata/v4/catalog/ProductSrv
+
+
+###
+http://localhost:4004/odata/v4/catalog/ProductSrv/$count
+
+###
+http://localhost:4004/odata/v4/catalog/ProductSrv?$top=10
+
+###
+http://localhost:4004/odata/v4/catalog/ProductSrv?$skip=10
+
+
+###
+http://localhost:4004/odata/v4/catalog/ProductSrv?$top=10&$skip=10
+
+###
+http://localhost:4004/odata/v4/catalog/ProductSrv?$filter=CATEGORY eq 'Notebooks' &DIM_UNIT eq 'CM'
+
+###
+http://localhost:4004/odata/v4/catalog/ProductSrv?$select=PRODUCT_ID,DESCRIPTION,CATEGORY,PRICE
+
+###
+http://localhost:4004/odata/v4/catalog/ProductSrv?$orderby=PRODUCT_ID desc
+
+
+###
+http://localhost:4004/odata/v4/catalog/ProductSrv('550e8400-e29b-41d4-a716-4466554400b1')/PRODUCT_ID
+ 
+###
+https://services.odata.org/V4/Northwind/Northwind.svc/Categories?$select=CategoryName,Description
+
+
+###
+https://services.odata.org/V4/Northwind/Northwind.svc/Customers?$select=ContactName,CustomerID,CompanyName&$filter=City eq 'London'
+
+###
+https://services.odata.org/V4/Northwind/Northwind.svc/Suppliers?$filter =Fax ne null
+
+
+###
+https://services.odata.org/V4/Northwind/Northwind.svc/Orders?$filter=Freight lt 100 and OrderDate ge 1997
+
+
+###
+https://services.odata.org/V4/Northwind/Northwind.svc/Orders?$filter=Freight lt 100 and OrderDate ge 1997-07-04T00:00:00Z and OrderDate le 1998-01-01T00:00:00Z
+
+
+###
+https://services.odata.org/V4/Northwind/Northwind.svc/Customers?$select=ContactName,CompanyName&$filter=ContactTitle eq 'Owner'&Country eq 'Mexico','Sweden','Germany'
+
+
+###SELECT COUNT(*) AS DiscontinuedProducts
+https://services.odata.org/V4/Northwind/Northwind.svc/Products?$filter = Discontinued eq true
+
+###
+https://services.odata.org/V4/Northwind/Northwind.svc/Suppliers?$select=CompanyName,City,Country,PostalCode&$filter=contains(Address,'rue')&$orderby=CompanyName
+
+
+###
+https://services.odata.org/V4/Northwind/Northwind.svc/Orders?$filter=Shipper/CompanyName eq 'Speedy Express'&$expand=Customer($select=CompanyName,Address)
+
+
+
+###
+https://services.odata.org/V4/Northwind/Northwind.svc/Suppliers?$select=CompanyName,ContactName,ContactTitle,Region
+
+
+
+###
+https://services.odata.org/V4/Northwind/Northwind.svc/Products?$select=ProductName&$filter=Category/CategoryName eq 'Condiments'
+
+
+###
+https://services.odata.org/V4/Northwind/Northwind.svc/Customers?$select=CompanyName&$filter=not Orders/any()
+
+###
+PUT http://localhost:4004/odata/v4/catalog/PurchaseItemSrv/74867AD200E41EDBA5D8B0CBD35B8052
+Content-Type: application/json
+ 
+{
+   "GROSS_AMOUNT":200000,
+   "CURRENCY_code":"EUR"
+}
+
+###
+PUT http://localhost:4004/odata/v4/catalog/AddressSrv/74867AD200E41EDBA5D8B06885664052
+Content-Type: application/json
+ 
+{
+    "COUNTRY":"DE"
+}
+###
+
+PUT http://localhost:4004/odata/v4/catalog/EmployeeSrv/02BD2137-0890-1EEA-A6C2-BB55C19827FB
+Content-Type: application/json
+
+{
+    "phoneNumber": "+1 924 384 5290"
+}
+
+###
+PUT http://localhost:4004/odata/v4/catalog/BusinessPartnerSrv/74867AD200E41EDBA5D8B06885992052
+Content-Type: application/json
+ 
+{
+    "COMPANY_NAME":"likhitha"
+}
+
+###
+GET http://localhost:4004/odata/v4/catalog/getHighestSalariedEmployees()
+
+### Get Highest Priced Product
+GET http://localhost:4004/odata/v4/catalog/getHeighestPricedProduct()
+
+
+###
+POST http://localhost:4004/odata/v4/catalog/localhost:4004/odata/v4/catalog/EmployeeSrv
+Content-Type: application/json
+{
+    "Currency_code"
+}
+
+### Send Request
+POST http://localhost:4004/odata/v4/catalog/EmployeeSrv
+Content-Type: application/json
+
+{
+    "Currency_code": "USD",
+    "ID": "2a5776ec-e711-4c11-a92a-2da5b46c11b8",
+    "accountNumber": null,
+    "bankId": null,
+    "bankName": null,
+    "email": null,
+    "gender": "M",
+    "language": "E",
+    "loginName": "RAMAM",
+    "nameFirst": "Rama",
+    "nameLast": "Murthy",
+    "nameMiddle": null,
+    "phoneNumber": "(+1) 9898989898",
+    "salaryAmount": "45000.00"
+}
+
+
+###
+GET http://localhost:4004/odata/v4/catalog/EmployeeSrv
+
+
+###
+GET http://localhost:4004/odata/v4/catalog/PurchaseOrderSrv
+
+
+###
+POST http://localhost:4004/odata/v4/catalog/PurchaseOrderSrv/74867AD200E41EDBA5D8B0C98DC28052/discountPrice
+Content-Type: application/json
+
+{}
+
+###
+GET http://localhost:4004/odata/v4/catalog/PurchaseOrderSrv/74867AD200E41EDBA5D8B0C98DF60052/largestOrder
+
+###
+GET http://localhost:4004/odata/v4/catalog/largestOrder()
+
+
+###
+GET http://localhost:4004/odata/v4/catalog/ProductSrv
+
+### Increase Product Price by 10%
+POST http://localhost:4004/odata/v4/catalog/ProductSrv(74867AD200E41EDBA5D8B06B26EB8052)/CatalogService.increasePrice
+
+
+###
+GET http://localhost:4004/odata/v4/catalog/ProductSrv(74867AD200E41EDBA5D8B06B26EB4052)/CatalogService.top20Products()
+
+
+###
+GET http://localhost:4004/odata/v4/catalog/EmployeeSrv
+
+
+### Increase Employee Salary by 15%
+POST http://localhost:4004/odata/v4/catalog/EmployeeSrv(02BD2137-0890-1EEA-A6C2-BB55C197E7FB)/CatalogService.increaseSalary
+
+
+### Top 20 Highest Paid Employees
+GET http://localhost:4004/odata/v4/catalog/EmployeeSrv(550e8400-e29b-41d4-a716-446655440888)/CatalogService.top20HighestPaidEmployees()
+
+
+###
+GET http://localhost:42913/odata/v4/catalog/getUtilities()
